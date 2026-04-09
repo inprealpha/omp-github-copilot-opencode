@@ -4,7 +4,18 @@
 	"description": "OMP plugin that switches GitHub Copilot to the OpenCode OAuth flow while preserving standard github-copilot models",
 	"type": "module",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/inprealpha/omp-github-copilot-opencode.git"
+	},
+	"homepage": "https://github.com/inprealpha/omp-github-copilot-opencode",
+	"bugs": {
+		"url": "https://github.com/inprealpha/omp-github-copilot-opencode/issues"
+	},
 	"packageManager": "bun@1.3.12",
+	"publishConfig": {
+		"access": "public"
+	},
 	"keywords": [
 		"omp",
 		"plugin",
@@ -26,7 +37,8 @@
 		]
 	},
 	"scripts": {
-		"check": "tsgo -p tsconfig.json --noEmit"
+		"check": "tsgo -p tsconfig.json --noEmit",
+		"prepublishOnly": "bun run check"
 	},
 	"dependencies": {
 		"@oh-my-pi/pi-ai": "^14.0.2"

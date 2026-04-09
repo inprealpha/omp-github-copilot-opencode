@@ -14,25 +14,18 @@ It keeps the normal `github-copilot/<model>` model names, reuses OMP's Copilot r
 
 ## Install
 
-Recommended: install it through OMP's marketplace flow from this repo itself.
+Supported upstream install path once the package is published:
 
 ```bash
-omp plugin marketplace add inprealpha/omp-github-copilot-opencode
-omp plugin install omp-github-copilot-opencode@omp-github-copilot-opencode
+omp plugin install omp-github-copilot-opencode
 ```
 
-Interactive alternative:
-
-```text
-/marketplace add inprealpha/omp-github-copilot-opencode
-/marketplace install omp-github-copilot-opencode@omp-github-copilot-opencode
-```
-
-Local development only:
+Local development fallback:
 
 ```bash
 git clone https://github.com/inprealpha/omp-github-copilot-opencode.git
 cd omp-github-copilot-opencode
+bun install
 omp plugin link "$PWD"
 ```
 
@@ -87,8 +80,24 @@ Run the package check locally:
 bun run check
 ```
 
+## Publish
+
+This repo is intended to be published to npm so upstream OMP can install it through `omp plugin install`.
+
+Manual publish:
+
+```bash
+bun publish
+```
+
+GitHub Actions publish:
+
+- Set the `NPM_TOKEN` repository secret.
+- Run the `publish` workflow manually or publish a GitHub release.
+
 ## Notes
 
 - The supported login path is `/copilot-opencode-login`. OMP's built-in `/login github-copilot` still runs the core flow and is intentionally not intercepted by this plugin.
-- `omp plugin install git:github.com/inprealpha/omp-github-copilot-opencode` is not currently supported by OMP's direct install path. Use the marketplace flow above or `omp plugin link` for local development.
+- Upstream OMP does not currently load `omp.extensions` from marketplace-installed repo caches, so marketplace installation is intentionally not used for this plugin.
+- If you installed an older marketplace build of this repo, remove it with `omp plugin uninstall omp-github-copilot-opencode@omp-github-copilot-opencode` and reinstall via package install or local link.
 - This plugin depends on the exported `@oh-my-pi/pi-ai` helpers instead of copying Copilot request-shaping code, so future upstream transport changes are easier to inherit by updating the dependency.
