@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"target": "ES2024",
+		"lib": ["ES2024"],
+		"module": "Preserve",
+		"moduleResolution": "Bundler",
+		"strict": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+		"verbatimModuleSyntax": true,
+		"allowImportingTsExtensions": true,
+		"paths": {
+			"*": ["./*"],
+			"@oh-my-pi/pi-ai/auth-storage": ["../packages/ai/src/auth-storage.ts"],
+			"@oh-my-pi/pi-ai/models": ["../packages/ai/src/models.ts"],
+			"@oh-my-pi/pi-ai/providers/anthropic": ["../packages/ai/src/providers/anthropic.ts"],
+			"@oh-my-pi/pi-ai/providers/openai-completions": ["../packages/ai/src/providers/openai-completions.ts"],
+			"@oh-my-pi/pi-ai/providers/openai-responses": ["../packages/ai/src/providers/openai-responses.ts"],
+			"@oh-my-pi/pi-ai/types": ["../packages/ai/src/types.ts"],
+			"@oh-my-pi/pi-ai/utils/oauth/github-copilot": ["../packages/ai/src/utils/oauth/github-copilot.ts"],
+			"@oh-my-pi/pi-ai/utils/oauth/types": ["../packages/ai/src/utils/oauth/types.ts"],
+			"@oh-my-pi/pi-coding-agent/extensibility/extensions/types": [
+				"../packages/coding-agent/src/extensibility/extensions/types.ts"
+			]
+		},
+		"types": ["bun"]
+	},
+	"include": ["src/**/*.ts", "src/**/*.d.ts"]
+}
