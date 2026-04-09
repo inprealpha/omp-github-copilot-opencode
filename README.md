@@ -14,7 +14,21 @@ It keeps the normal `github-copilot/<model>` model names, reuses OMP's Copilot r
 
 ## Install
 
-Clone the plugin repo and link it into OMP:
+Recommended: install it through OMP's marketplace flow from this repo itself.
+
+```bash
+omp plugin marketplace add inprealpha/omp-github-copilot-opencode
+omp plugin install omp-github-copilot-opencode@omp-github-copilot-opencode
+```
+
+Interactive alternative:
+
+```text
+/marketplace add inprealpha/omp-github-copilot-opencode
+/marketplace install omp-github-copilot-opencode@omp-github-copilot-opencode
+```
+
+Local development only:
 
 ```bash
 git clone https://github.com/inprealpha/omp-github-copilot-opencode.git
@@ -76,4 +90,5 @@ bun run check
 ## Notes
 
 - The supported login path is `/copilot-opencode-login`. OMP's built-in `/login github-copilot` still runs the core flow and is intentionally not intercepted by this plugin.
+- `omp plugin install git:github.com/inprealpha/omp-github-copilot-opencode` is not currently supported by OMP's direct install path. Use the marketplace flow above or `omp plugin link` for local development.
 - This plugin depends on the exported `@oh-my-pi/pi-ai` helpers instead of copying Copilot request-shaping code, so future upstream transport changes are easier to inherit by updating the dependency.

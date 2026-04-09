@@ -1,0 +1,23 @@
+{
+	"$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+	"name": "omp-github-copilot-opencode",
+	"owner": {
+		"name": "inprealpha"
+	},
+	"plugins": [
+		{
+			"name": "omp-github-copilot-opencode",
+			"description": "Override OMP's built-in GitHub Copilot provider to use the OpenCode OAuth flow.",
+			"source": "./",
+			"homepage": "https://github.com/inprealpha/omp-github-copilot-opencode",
+			"repository": "https://github.com/inprealpha/omp-github-copilot-opencode",
+			"license": "MIT",
+			"keywords": [
+				"omp",
+				"github-copilot",
+				"opencode",
+				"oauth"
+			]
+		}
+	]
+}
